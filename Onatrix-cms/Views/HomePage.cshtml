@@ -1,0 +1,15 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<HomePage>
+@{
+	Layout = "mainLayout.cshtml";
+}
+<h1>@Model.HeroTitle</h1>
+<p>@Html.Raw(Model.HeroText)</p>
+@if(Model.HeroLink != null)
+{
+	<a href="@Model.HeroLink.Url">@Model.HeroLink.Name</a>
+}
+@if(Model.HeroBgImage != null )
+{
+	<img src="@Model.HeroBgImage.Url()"/>
+}

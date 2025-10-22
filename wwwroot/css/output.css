@@ -1,4 +1,5 @@
 /*! tailwindcss v4.1.15 | MIT License | https://tailwindcss.com */
+@layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -6,8 +7,19 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-white: #F2EDDC;
+    --spacing: 0.25rem;
+    --container-7xl: 80rem;
+    --leading-snug: 1.375;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --color-primary: #4F5955;
+    --color-secondary: #D9C3A9;
+    --color-btn-primary-background-hover: #9EA6A3;
+    --color-btn-primary-text-hover: #F2EDDC;
+    --font-family-poppins: 'Poppins', sans-serif;
+    --font-semibold: 600;
+    --font-bold: 700;
   }
 }
 @layer base {
@@ -161,10 +173,157 @@
   }
 }
 @layer utilities {
+  .absolute {
+    position: absolute;
+  }
+  .relative {
+    position: relative;
+  }
   .static {
     position: static;
   }
+  .inset-0 {
+    inset: calc(var(--spacing) * 0);
+  }
+  .z-10 {
+    z-index: 10;
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
   .block {
     display: block;
+  }
+  .flex {
+    display: flex;
+  }
+  .h-full {
+    height: 100%;
+  }
+  .w-5\/10 {
+    width: calc(5/10 * 100%);
+  }
+  .w-5\/12 {
+    width: calc(5/12 * 100%);
+  }
+  .w-full {
+    width: 100%;
+  }
+  .max-w-7xl {
+    max-width: var(--container-7xl);
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .gap-8 {
+    gap: calc(var(--spacing) * 8);
+  }
+  .self-start {
+    align-self: flex-start;
+  }
+  .object-cover {
+    object-fit: cover;
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .py-\[7rem\] {
+    padding-block: 7rem;
+  }
+  .leading-none {
+    --tw-leading: 1;
+    line-height: 1;
+  }
+}
+html {
+  height: 100%;
+  font-family: var(--font-family-poppins);
+}
+body {
+  min-height: 100vh;
+}
+h1 {
+  --tw-leading: 1;
+  line-height: 1;
+  color: var(--color-primary);
+  font-size: 4.5rem;
+  font-weight: var(--font-bold);
+}
+h2 {
+  --tw-leading: 1;
+  line-height: 1;
+  color: var(--color-primary);
+  font-size: 3rem;
+  font-weight: var(--font-bold);
+}
+h3 {
+  --tw-leading: 1;
+  line-height: 1;
+  color: var(--color-primary);
+  font-size: 2.5rem;
+  font-weight: var(--font-bold);
+}
+h4 {
+  --tw-leading: 1;
+  line-height: 1;
+  color: var(--color-primary);
+  font-size: 2rem;
+  font-weight: var(--font-semibold);
+}
+h5 {
+  --tw-leading: 1;
+  line-height: 1;
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: var(--font-semibold);
+}
+h6 {
+  --tw-leading: 1;
+  line-height: 1;
+  color: var(--color-primary);
+  font-size: 1.125rem;
+  font-weight: var(--font-semibold);
+}
+.rte h3 {
+  margin-bottom: calc(var(--spacing) * 4);
+  --tw-leading: var(--leading-snug);
+  line-height: var(--leading-snug);
+  color: var(--color-primary);
+}
+a {
+  text-decoration-line: none;
+}
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  text-decoration-line: none;
+  padding-block: 0.8rem;
+  padding-inline: 1.5rem;
+}
+.primary-btn {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+.primary-btn:hover {
+  background-color: var(--color-btn-primary-background-hover);
+  color: var(--color-btn-primary-text-hover);
+}
+.label {
+  padding-bottom: calc(var(--spacing) * 4);
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  font-size: var(--body-14);
+  font-weight: var(--font-bold);
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-leading: initial;
+    }
   }
 }

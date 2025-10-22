@@ -1,1 +1,122 @@
 ﻿@import "tailwindcss";
+
+
+@theme {
+    /* COLOUR */
+    --color-neutral: #FFFFFF;
+    --color-white: #F2EDDC;
+    --color-white-100: #F7F7F7;
+    --color-dark: #0E0E0E;
+    --color-primary: #4F5955;
+    --color-main-light: #606966;
+    --color-accent: #F2EDDC;
+    --color-secondary: #D9C3A9;
+    --color-gray-400: #4B5264;
+    --color-body-text: #535656;
+    --color-body-text-100: #999999;
+    --color-notel: #9C9EA6;
+    --color-border-gray: #EAEAEA;
+    --color-border-400: #C7C8C9;
+    /* Button  */
+    --color-btn-primary-background-hover: #9EA6A3;
+    --color-btn-primary-text-hover: #F2EDDC;
+    --color-btn-secondary-color: #4F5955;
+    --color-btn-secondary-background-color: #F2EDDC;
+    /*TYPOGRAPHY */
+    --font-family-poppins: 'Poppins', sans-serif;
+    /* Font Weights */
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+    /* Background */
+    --color-main-background-color: #F5F3F3;
+    --color-secondary-background-color: #EBEBEB;
+    --color-dark-header-background-color: #4F5955;
+    --color-black-background-color: #0E0E0E;
+}
+
+
+
+html {
+    @apply h-full font-family-poppins;
+}
+
+body {
+    @apply min-h-screen;
+}
+
+/* ------------------------------------
+    Typography
+------------------------------------ */
+h1 {
+    @apply leading-none text-primary;
+    font-size: 4.5rem;
+    font-weight: var(--font-bold);
+}
+
+h2 {
+    @apply leading-none text-primary;
+    font-size: 3rem;
+    font-weight: var(--font-bold);
+}
+
+h3 {
+    @apply leading-none text-primary;
+    font-size: 2.5rem;
+    font-weight: var(--font-bold);
+}
+
+h4 {
+    @apply leading-none text-primary;
+    font-size: 2rem;
+    font-weight: var(--font-semibold);
+}
+
+h5 {
+    @apply leading-none text-primary;
+    font-size: 1.5rem;
+    font-weight: var(--font-semibold);
+}
+
+h6 {
+    @apply leading-none text-primary;
+    font-size: 1.125rem;
+    font-weight: var(--font-semibold);
+}
+
+/* Rich text editor content */
+.rte h3 {
+    @apply mb-4 leading-snug text-primary;
+}
+
+a {
+    @apply no-underline;
+}
+
+/* ------------------------------------
+   Buttons
+------------------------------------ */
+.btn {
+    @apply inline-block rounded cursor-pointer no-underline;
+    padding-block: 0.8rem;
+    padding-inline: 1.5rem;
+}
+
+.primary-btn {
+    @apply bg-primary text-white;
+}
+
+    .primary-btn:hover {
+        @apply bg-btn-primary-background-hover text-btn-primary-text-hover;
+    }
+
+/* ------------------------------------
+   Labels
+------------------------------------ */
+.label {
+    @apply uppercase pb-4 text-secondary;
+    font-size: var(--body-14);
+    font-weight: var(--font-bold);
+}

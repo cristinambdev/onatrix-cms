@@ -10,9 +10,13 @@
     --color-white: #F2EDDC;
     --spacing: 0.25rem;
     --container-7xl: 80rem;
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
     --leading-snug: 1.375;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --color-neutral: #FFFFFF;
+    --color-white-100: #F7F7F7;
     --color-primary: #4F5955;
     --color-secondary: #D9C3A9;
     --color-btn-primary-background-hover: #9EA6A3;
@@ -188,8 +192,29 @@
   .z-10 {
     z-index: 10;
   }
+  .container {
+    width: 100%;
+    @media (width >= 40rem) {
+      max-width: 40rem;
+    }
+    @media (width >= 48rem) {
+      max-width: 48rem;
+    }
+    @media (width >= 64rem) {
+      max-width: 64rem;
+    }
+    @media (width >= 80rem) {
+      max-width: 80rem;
+    }
+    @media (width >= 96rem) {
+      max-width: 96rem;
+    }
+  }
   .mx-auto {
     margin-inline: auto;
+  }
+  .mt-5 {
+    margin-top: calc(var(--spacing) * 5);
   }
   .block {
     display: block;
@@ -197,8 +222,17 @@
   .flex {
     display: flex;
   }
+  .grid {
+    display: grid;
+  }
+  .h-\[220px\] {
+    height: 220px;
+  }
   .h-full {
     height: 100%;
+  }
+  .min-h-\[350px\] {
+    min-height: 350px;
   }
   .w-5\/10 {
     width: calc(5/10 * 100%);
@@ -212,8 +246,23 @@
   .max-w-7xl {
     max-width: var(--container-7xl);
   }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
   .flex-col {
     flex-direction: column;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
   }
   .gap-8 {
     gap: calc(var(--spacing) * 8);
@@ -221,14 +270,58 @@
   .self-start {
     align-self: flex-start;
   }
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+  .border-\[var\(--clr-white-100\)\] {
+    border-color: var(--clr-white-100);
+  }
+  .border-white-100 {
+    border-color: var(--color-white-100);
+  }
+  .bg-\[\@sectionColor\] {
+    background-color: @sectionColor;
+  }
+  .bg-\[var\(--clr-neutral\)\] {
+    background-color: var(--clr-neutral);
+  }
+  .bg-neutral {
+    background-color: var(--color-neutral);
+  }
   .object-cover {
     object-fit: cover;
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+  .p-\[1\.5rem\] {
+    padding: 1.5rem;
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
+  .px-6 {
+    padding-inline: calc(var(--spacing) * 6);
+  }
+  .py-16 {
+    padding-block: calc(var(--spacing) * 16);
+  }
+  .py-\[4rem\] {
+    padding-block: 4rem;
+  }
   .py-\[7rem\] {
     padding-block: 7rem;
+  }
+  .font-semibold {
+    font-family: var(--font-semibold);
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
   }
   .leading-none {
     --tw-leading: 1;
@@ -316,6 +409,31 @@ a {
   font-size: var(--body-14);
   font-weight: var(--font-bold);
 }
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-leading {
   syntax: "*";
   inherits: false;
@@ -323,6 +441,12 @@ a {
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
+      --tw-border-style: solid;
       --tw-leading: initial;
     }
   }

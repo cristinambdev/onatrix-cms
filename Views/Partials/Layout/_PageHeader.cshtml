@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPageHeader>
+
+@* <section class="bg-white-100 bg-no-repeat py-16
+
+        [background-image:url('/images/rectangle_left.svg'), url('/images/rectangle_right.svg');
+        [background-position:left_bottom,top_right]"> *@
+<section class="bg-white-100 bg-no-repeat py-16"
+         style="background-image: url('/images/rectangle_left.svg'),  url('/images/rectangle_right.svg');
+                background-position: left bottom, top right;
+                background-repeat: no-repeat;">
+
+    <div class="container mx-auto px-4"> 
+        <h2 class="text-center text-[2.5rem] text-primary font-bold">@Model.PageTitle</h2>
+        <div>
+
+        </div>
+    </div>
+</section>

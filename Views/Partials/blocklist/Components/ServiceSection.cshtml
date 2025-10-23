@@ -4,6 +4,13 @@
     var content = (ContentModels.ServiceSection)Model.Content;
     var settings = Model.Settings as ContentModels.ServiceSettings; 
     var sectionColor = settings?.ServiceBgColour?.Color ?? "#ffffff";
+
+
+    var current = Umbraco.AssignedContentItem;
+    var siteRoot = current?.Root();
+
+    var servicePage = siteRoot?.Children<ServicePage>()?.FirstOrDefault();
+    var items = servicePage?.Children<ServiceDetail>()?.OrderByDescending(x => x.CreateDate);
 }
 
 <section class="py-[4rem] bg-[@sectionColor]">

@@ -10,7 +10,7 @@
     var siteRoot = current?.Root();
 
     var servicePage = siteRoot?.Children<ServicePage>()?.FirstOrDefault();
-    var items = servicePage?.Children<ServiceDetail>()?.OrderByDescending(x => x.CreateDate);
+    var items = servicePage?.Children<ServiceDetail>()?.OrderByDescending(x => x.CreateDate).ToList() ?? [];
 }
 
 <section class="py-[4rem] bg-[@sectionColor]">
@@ -25,16 +25,26 @@
         </div>
 
         <div class="mt-5 grid grid-cols-3 gap-4">
-            <div class="bg-neutral border-2 border-white-100 w-full min-h-[350px] overflow-hidden">
-                <a href="#" class="block">
-                    <h6 class="p-6 font-semibold">Risk Management</h6>
-                    <img src="~/images/risk_management.svg" class="block w-full h-[220px] object-cover" />
-                    <p class="text-sm p-[1.5rem]">
-                        Dolor in reprehenderit in voluptate velit esse cillum dolore
-                        eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    </p>
-                </a>
-            </div>
+
+            @if(items.Any())
+            {
+                foreach(var item in items)
+                {
+                    <div class="bg-neutral border-2 border-white-100 w-full min-h-[350px] overflow-hidden transition-all hover:border-secondary hover:shadow-[0_4px_15px_rgba(0,0,0,0.1)]">
+                        <a href="@item.Url()" class="block">
+                            <h6 class="p-6 font-semibold">@item.Name</h6>
+                           
+                            <img src="@(item.ServiceDetailThumbnail?.Url() ?? "~/images/risk_management.svg")" class="block w-full h-[220px] object-cover" />
+                            <p class="text-sm p-[1.5rem]">@item.ServiceDetailExcerpt</p>
+                        </a>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>No services available</p>
+            }
+           
         </div>
     </div>
 </section>

@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Contact Page</summary>
 	[PublishedModel("contactPage")]
-	public partial class ContactPage : PublishedContentModel
+	public partial class ContactPage : PublishedContentModel, IPageHeader
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -50,11 +50,11 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Banner Title
+		/// Page Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("bannerTitle")]
-		public virtual string BannerTitle => this.Value<string>(_publishedValueFallback, "bannerTitle");
+		[ImplementPropertyType("pageTitle")]
+		public virtual string PageTitle => global::Umbraco.Cms.Web.Common.PublishedModels.PageHeader.GetPageTitle(this, _publishedValueFallback);
 	}
 }

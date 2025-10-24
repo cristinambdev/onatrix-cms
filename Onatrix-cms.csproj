@@ -6,6 +6,9 @@
     <RootNamespace>Onatrix_cms</RootNamespace>
     <CompressionEnabled>false</CompressionEnabled> <!-- Disable compression. E.g. for umbraco backoffice files. These files should be precompressed by node and not let dotnet handle it -->
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="app_plugins\onatrixrte\umbraco-package.json" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Umbraco.Cms" Version="16.2.0" />
@@ -18,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="App_Plugins\OnatrixRte\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 

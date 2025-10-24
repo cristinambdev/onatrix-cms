@@ -31,6 +31,9 @@
     --color-primary: #4F5955;
     --color-main-light: #606966;
     --color-secondary: #D9C3A9;
+    --color-body-text: #535656;
+    --color-body-text-100: #999999;
+    --color-border-gray: #EAEAEA;
     --color-btn-primary-background-hover: #9EA6A3;
     --color-btn-primary-text-hover: #F2EDDC;
     --font-family-poppins: 'Poppins', sans-serif;
@@ -264,6 +267,9 @@
   }
   .w-full {
     width: 100%;
+  }
+  .w-px {
+    width: 1px;
   }
   .max-w-7xl {
     max-width: var(--container-7xl);
@@ -537,7 +543,7 @@ h6 {
   line-height: var(--leading-snug);
   color: var(--color-primary);
 }
-a {
+.rte-ul a {
   text-decoration-line: none;
 }
 .btn {

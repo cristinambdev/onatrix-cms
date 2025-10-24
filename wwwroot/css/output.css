@@ -36,11 +36,6 @@
     --color-body-text: #535656;
     --color-body-text-100: #999999;
     --color-border-gray: #EAEAEA;
-    --text-rte-xl: 4.375rem;
-    --text-rte-lg: 2.5rem;
-    --text-rte-md: 1.25rem;
-    --text-rte-sm: 1rem;
-    --text-rte-xs: 0.875rem;
     --color-btn-primary-background-hover: #9EA6A3;
     --color-btn-primary-text-hover: #F2EDDC;
     --font-family-poppins: 'Poppins', sans-serif;
@@ -594,28 +589,7 @@ h6 {
   line-height: var(--leading-snug);
   color: var(--color-primary);
 }
-.rte p {
-  margin-bottom: calc(var(--spacing) * 3);
-}
-.rte-ul {
-  margin-top: calc(var(--spacing) * 3);
-  list-style-type: disc;
-  padding-left: calc(var(--spacing) * 5);
-}
-.rte-ul li {
-  margin-bottom: calc(var(--spacing) * 3);
-  font-size: var(--text-rte-xs);
-  color: var(--color-body-text);
-}
-.rte-ul li::marker {
-  color: var(--color-secondary);
-}
-.rte img {
-  height: auto;
-  width: 100%;
-  object-fit: cover;
-}
-a {
+.rte-ul a {
   text-decoration-line: none;
 }
 .btn {

@@ -90,7 +90,7 @@ h6 {
 
 /* Rich text editor content */
 .rte h3 {
-    @apply mb-4 leading-snug text-primary;
+    @apply mb-4 leading-none text-primary;
 }
 .rte p {
     @apply mb-3;

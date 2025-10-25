@@ -19,8 +19,6 @@
     --text-base--line-height: calc(1.5 / 1);
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
-    --font-weight-light: 300;
-    --font-weight-normal: 400;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --leading-snug: 1.375;
@@ -33,14 +31,6 @@
     --color-primary: #4F5955;
     --color-main-light: #606966;
     --color-secondary: #D9C3A9;
-    --color-body-text: #535656;
-    --color-body-text-100: #999999;
-    --color-border-gray: #EAEAEA;
-    --text-rte-xl: 4.375rem;
-    --text-rte-lg: 2.5rem;
-    --text-rte-md: 1.25rem;
-    --text-rte-sm: 1rem;
-    --text-rte-xs: 0.875rem;
     --color-btn-primary-background-hover: #9EA6A3;
     --color-btn-primary-text-hover: #F2EDDC;
     --font-family-poppins: 'Poppins', sans-serif;
@@ -465,14 +455,6 @@
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
-  }
-  .font-light {
-    --tw-font-weight: var(--font-weight-light);
-    font-weight: var(--font-weight-light);
-  }
-  .font-normal {
-    --tw-font-weight: var(--font-weight-normal);
-    font-weight: var(--font-weight-normal);
   }
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);

@@ -17,6 +17,14 @@
     --color-notel: #9C9EA6;
     --color-border-gray: #EAEAEA;
     --color-border-400: #C7C8C9;
+    /* FONT SIZES for RTE */
+    --text-rte-xl: 4.375rem;
+    --text-rte-lg: 2.5rem;
+    --text-rte-md: 1.25rem;
+    --text-rte-sm: 1rem;
+    --text-rte-xs: 0.875rem;
+
+
     /* Button  */
     --color-btn-primary-background-hover: #9EA6A3;
     --color-btn-primary-text-hover: #F2EDDC;
@@ -24,12 +32,6 @@
     --color-btn-secondary-background-color: #F2EDDC;
     /*TYPOGRAPHY */
     --font-family-poppins: 'Poppins', sans-serif;
-    /* Font Weights */
-    --font-regular: 400;
-    --font-medium: 500;
-    --font-semibold: 600;
-    --font-bold: 700;
-    --font-extrabold: 800;
     /* Background */
     --color-main-background-color: #F5F3F3;
     --color-secondary-background-color: #EBEBEB;
@@ -53,44 +55,59 @@ body {
 h1 {
     @apply leading-none text-primary;
     font-size: 4.5rem;
-    font-weight: var(--font-bold);
+    font-weight: 700;
 }
 
 h2 {
     @apply leading-none text-primary;
     font-size: 3rem;
-    font-weight: var(--font-bold);
+    font-weight: 700;
 }
 
 h3 {
     @apply leading-none text-primary;
     font-size: 2.5rem;
-    font-weight: var(--font-bold);
+    font-weight: 700;
 }
 
 h4 {
     @apply leading-none text-primary;
     font-size: 2rem;
-    font-weight: var(--font-semibold);
+    font-weight: 700;
 }
 
 h5 {
     @apply leading-none text-primary;
     font-size: 1.5rem;
-    font-weight: var(--font-semibold);
+    font-weight: 700;
 }
 
 h6 {
     @apply leading-none text-primary;
     font-size: 1.125rem;
-    font-weight: var(--font-semibold);
+    font-weight: 700;
 }
 
 /* Rich text editor content */
 .rte h3 {
-    @apply mb-4 leading-snug text-primary;
+    @apply mb-4 leading-none text-primary;
+}
+.rte p {
+    @apply mb-3;
+}
+.rte-ul {
+    @apply list-disc pl-5 mt-3;
+}
+.rte-ul li{
+    @apply text-rte-xs text-body-text mb-3;
 }
 
+.rte-ul li::marker {
+    @apply text-secondary;
+}
+.rte img {
+    @apply w-full h-auto object-cover;
+}
 a {
     @apply no-underline;
 }
@@ -117,6 +134,10 @@ a {
 ------------------------------------ */
 .label {
     @apply uppercase pb-4 text-secondary;
-    font-size: var(--body-14);
-    font-weight: var(--font-bold);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.current a {
+    @apply text-secondary;
 }

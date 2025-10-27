@@ -480,3 +480,9 @@ umbraco-package-schema.json
 
 # Media files
 /wwwroot/media/
+/appsettings.json
+/appsettings.Development.json
+/appsettings.json
+/appsettings.Development.json
+w w w r o o t / c s s / o u t p u t . c s s  
+ 

@@ -58,19 +58,19 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string AboutCallbackFormDescription => this.Value<string>(_publishedValueFallback, "aboutCallbackFormDescription");
 
 		///<summary>
-		/// Form Title
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("aboutCallbackFormTitle")]
-		public virtual string AboutCallbackFormTitle => this.Value<string>(_publishedValueFallback, "aboutCallbackFormTitle");
-
-		///<summary>
 		/// Body
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("aboutCallbackSectionBody")]
 		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString AboutCallbackSectionBody => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "aboutCallbackSectionBody");
+
+		///<summary>
+		/// Form Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("formTitle")]
+		public virtual string FormTitle => this.Value<string>(_publishedValueFallback, "formTitle");
 	}
 }

@@ -4,7 +4,7 @@
     var rootContent = Umbraco.ContentAtRoot();
     var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
 
-    var contactAddress = siteSettings?.ContactAddress ?? "No Address given";
+    var contactAddress = siteSettings?.ContactAddress?.ToHtmlString() ?? "No Address given";
 }
 
 <div class="bg-primary">

@@ -105,9 +105,7 @@ h6 {
 .rte-ul li::marker {
     @apply text-secondary;
 }
-.rte img {
-    @apply w-full h-auto object-cover;
-}
+
 a {
     @apply no-underline;
 }

@@ -25,7 +25,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Page Title</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string PageTitle { get; }
+		global::Umbraco.Cms.Core.Strings.IHtmlEncodedString PageTitle { get; }
 	}
 
 	/// <summary>Page Header</summary>
@@ -65,11 +65,11 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("pageTitle")]
-		public virtual string PageTitle => GetPageTitle(this, _publishedValueFallback);
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString PageTitle => GetPageTitle(this, _publishedValueFallback);
 
 		/// <summary>Static getter for Page Title</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetPageTitle(IPageHeader that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "pageTitle");
+		public static global::Umbraco.Cms.Core.Strings.IHtmlEncodedString GetPageTitle(IPageHeader that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(publishedValueFallback, "pageTitle");
 	}
 }

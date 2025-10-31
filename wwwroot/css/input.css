@@ -28,7 +28,7 @@
     /* Button  */
     --color-btn-primary-background-hover: #9EA6A3;
     --color-btn-primary-text-hover: #F2EDDC;
-    --color-btn-secondary-color: #4F5955;
+    --color-btn-secondary-color-hover: #4F5955;
     --color-btn-secondary-background-color: #F2EDDC;
     /*TYPOGRAPHY */
     --font-family-poppins: 'Poppins', sans-serif;
@@ -37,7 +37,7 @@
     --color-secondary-background-color: #EBEBEB;
     --color-dark-header-background-color: #4F5955;
     --color-black-background-color: #0E0E0E;
-}
+}over
 
 
 
@@ -125,6 +125,14 @@ a {
 
     .primary-btn:hover {
         @apply bg-btn-primary-background-hover text-btn-primary-text-hover;
+    }
+
+.secondary-btn {
+    @apply bg-secondary text-body-text;
+}
+
+    .secondary-btn:hover {
+        @apply bg-btn-secondary-color-hover text-btn-secondary-color-hover;
     }
 
 /* ------------------------------------

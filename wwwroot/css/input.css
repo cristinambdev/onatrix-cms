@@ -23,13 +23,8 @@
     --text-rte-md: 1.25rem;
     --text-rte-sm: 1rem;
     --text-rte-xs: 0.875rem;
-
-
-    /* Button  */
-    --color-btn-primary-background-hover: #9EA6A3;
-    --color-btn-primary-text-hover: #F2EDDC;
-    --color-btn-secondary-color-hover: #4F5955;
-    --color-btn-secondary-background-color: #F2EDDC;
+   
+ 
     /*TYPOGRAPHY */
     --font-family-poppins: 'Poppins', sans-serif;
     /* Background */
@@ -114,7 +109,7 @@ a {
    Buttons
 ------------------------------------ */
 .btn {
-    @apply inline-block rounded cursor-pointer no-underline;
+    @apply inline-block rounded cursor-pointer  font-bold no-underline;
     padding-block: 0.8rem;
     padding-inline: 1.5rem;
 }
@@ -124,15 +119,15 @@ a {
 }
 
     .primary-btn:hover {
-        @apply bg-btn-primary-background-hover text-btn-primary-text-hover;
+        @apply bg-white text-primary;
     }
 
 .secondary-btn {
-    @apply bg-secondary text-body-text;
+    @apply bg-white text-primary;
 }
 
     .secondary-btn:hover {
-        @apply bg-btn-secondary-color-hover text-btn-secondary-color-hover;
+        @apply bg-primary text-white;
     }
 
 /* ------------------------------------

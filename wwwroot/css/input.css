@@ -143,3 +143,14 @@ a {
     @apply text-secondary;
 }
 
+/* ------------------------------------
+   FORMS
+------------------------------------ */
+
+.input-validation-error {
+    @apply border-red-500 focus:ring-1 focus:ring-red-500;
+}
+
+.field-validation-error {
+    @apply mt-1 block text-sm text-red-600;
+}

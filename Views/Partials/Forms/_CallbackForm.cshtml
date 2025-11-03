@@ -31,9 +31,14 @@
             <div class="relative">
                 <select asp-for="SelectedOption" class="appearance-none w-full  p-3 pr-10 border-1 border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none">
                 <option value="" disabled hidden selected>Please select an option</option>
-                    <option value="Financial consulting">Financial consulting</option>
+                 @*    <option value="Financial consulting">Financial consulting</option>
                     <option value="Business">Business</option>
-                    <option value="Tax planning">Tax planning</option>
+                    <option value="Tax planning">Tax planning</option> *@
+
+                    @foreach(var o in Model.Options)
+                    {
+                        <option value="@o">@o</option>
+                    }
                 </select>
 
                 <!-- Dropdown arrow -->

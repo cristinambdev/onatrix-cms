@@ -1,0 +1,39 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var content = (ContentModels.WhyUsSection)Model.Content;
+    
+}
+
+<section class="bg-neutral bg-no-repeat py-16"
+         style="background-image: url('/images/dot_map.svg');
+                background-position: center;
+                background-repeat: no-repeat;">
+    <div class="max-w-7xl mx-auto px-4 relative flex flex-col items-center">
+
+        <div class="flex flex-col justify-center">
+            <h2 class="rte">@content.WhyUsTitle</h2>
+
+            <div class="rte my-6 w-[40rem] flex justify-center items-center">
+                <span>@Html.Raw(content.WhyUsDescription)</span>
+            </div>
+            <div class="flex justify-center mb-15">
+                @if (content.ReadOurStoryButton != null)
+                {
+                    <a href="@content.ReadOurStoryButton.Url" class="btn primary-btn">Read our story</a>
+                }
+            </div>
+           
+        </div>
+
+        @if (@content?.WhyUsPicture != null)
+        {
+            <div class="flex justify-center">
+                <img src="@content?.WhyUsPicture.Url()" class="mt-5 " />
+            </div>
+        }
+
+    </div>
+</section>
+

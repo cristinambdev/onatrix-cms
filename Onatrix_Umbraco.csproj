@@ -23,7 +23,6 @@
   <ItemGroup>
     <Folder Include="App_Plugins\OmatrixRte\" />
     <Folder Include="Views\Partials\blocklist\Components\" />
-    <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
   <PropertyGroup>

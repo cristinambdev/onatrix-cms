@@ -1,5 +1,6 @@
 ﻿@import "tailwindcss";
-
+/*@import "./swiper.css";
+*/
 
 @theme {
     /* COLOUR */
@@ -23,8 +24,6 @@
     --text-rte-md: 1.25rem;
     --text-rte-sm: 1rem;
     --text-rte-xs: 0.875rem;
-   
- 
     /*TYPOGRAPHY */
     --font-family-poppins: 'Poppins', sans-serif;
     /* Background */
@@ -32,7 +31,7 @@
     --color-secondary-background-color: #EBEBEB;
     --color-dark-header-background-color: #4F5955;
     --color-black-background-color: #0E0E0E;
-}over
+}
 
 
 
@@ -154,3 +153,85 @@ a {
 .field-validation-error {
     @apply mt-1 block text-sm text-red-600;
 }
+
+
+
+/* ------------------------------------
+   SWIPER
+------------------------------------ */
+.custom-pagination {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .custom-pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        margin-top: 1.5rem;
+    }
+}
+
+.custom-prev,
+.custom-next {
+    font-size: 1.125rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    color: var(--color-gray-400);
+    cursor: pointer;
+}
+
+.swiper-button-disabled {
+    color: var(--color-border-400);
+    cursor: default;
+}
+
+.swiper-pagination {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    position: static !important;
+    width: auto !important;
+    margin-top: 0.5rem !important;
+  
+   
+}
+
+
+.swiper-pagination-bullet {
+    font-size: 1.125rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent !important;
+    background-color: transparent !important;
+    width: 2rem !important;
+    height: 2rem !important;
+    color: var(--color-body-text-100);
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0 !important;
+    opacity: 1 !important;
+    text-align: center;
+
+}
+
+    .swiper-pagination-bullet:hover {
+        border: 1px solid var(--color-border-400);
+        color: var(--color-gray-400);
+        opacity: 1 !important;
+    }
+
+.swiper-pagination-bullet-active {
+    background: var(--color-neutral) !important;
+    border: 1px solid var(--color-border-400);
+    color: var(--color-gray-400) !important;
+}
+

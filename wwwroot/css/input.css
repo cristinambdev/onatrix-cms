@@ -46,7 +46,7 @@ body {
 /* ------------------------------------
     Typography
 ------------------------------------ */
-h1 {
+/*h1 {
     @apply leading-none text-primary;
     font-size: 4.5rem;
     font-weight: 700;
@@ -80,11 +80,11 @@ h6 {
     @apply leading-none text-primary;
     font-size: 1.125rem;
     font-weight: 700;
-}
+}*/
 
 /* Rich text editor content */
-.rte h3 {
-    @apply mb-4 leading-none text-primary;
+/*.rte h3 {
+    @apply mb-4 text-primary;
 }
 .rte p {
     @apply mb-3;
@@ -99,7 +99,7 @@ h6 {
 .rte-ul li::marker {
     @apply text-secondary;
 }
-
+*/
 a {
     @apply no-underline;
 }

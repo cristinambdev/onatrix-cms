@@ -1,0 +1,48 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var content = (ContentModels.PartnersSection)Model.Content;
+
+}
+<section class="bg-neutral">
+    <div class="max-w-7xl mx-auto px-4 gap-[4rem] mt-[10rem] mb-4 flex items-center justify-center">
+        @if (@content?.Freedombird != null)
+        {
+            <div>
+                <img src="@content?.Freedombird.Url()"  />
+            </div>
+        }
+        @if (@content?.Identity != null)
+        {
+            <div>
+                <img src="@content?.Identity.Url()"/>
+            </div>
+        }
+        @if (@content?.Natural != null)
+        {
+            <div >
+                <img src="@content?.Natural.Url()" />
+            </div>
+        }
+        @if (@content?.Simpleleaf != null)
+        {
+            <div>
+                <img src="@content?.Simpleleaf.Url()" />
+            </div>
+        }
+        @if (@content?.Globe != null)
+        {
+            <div>
+                <img src="@content?.Globe.Url()" />
+            </div>
+        }
+        @if (@content?.FossilGroup != null)
+        {
+            <div>
+                <img src="@content?.FossilGroup.Url()" />
+            </div>
+        }
+    </div>
+
+</section>

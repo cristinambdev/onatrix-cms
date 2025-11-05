@@ -285,6 +285,16 @@
           "appearance": {
             "style": "background-color: #999999; color:#fff; padding:5px;"
           }
+        },
+        {
+          "label": "White",
+          "data": {
+            "tag": "span",
+            "class": "text-neutral"
+          },
+          "appearance": {
+            "style": "background-color: #999999; color:#fff; padding:5px;"
+          }
         }
       ]
     }

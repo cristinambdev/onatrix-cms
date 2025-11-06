@@ -43,51 +43,10 @@ body {
     @apply min-h-screen;
 }
 
-/* ------------------------------------
-    Typography
------------------------------------- */
-/*h1 {
-    @apply leading-none text-primary;
-    font-size: 4.5rem;
-    font-weight: 700;
-}
-
-h2 {
-    @apply leading-none text-primary;
-    font-size: 3rem;
-    font-weight: 700;
-}
-
-h3 {
-    @apply leading-none text-primary;
-    font-size: 2.5rem;
-    font-weight: 700;
-}
-
-h4 {
-    @apply leading-none text-primary;
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-h5 {
-    @apply leading-none text-primary;
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-h6 {
-    @apply leading-none text-primary;
-    font-size: 1.125rem;
-    font-weight: 700;
-}*/
-
 /* Rich text editor content */
-/*.rte h3 {
-    @apply mb-4 text-primary;
-}
+
 .rte p {
-    @apply mb-3;
+    @apply mb-5;
 }
 .rte-ul {
     @apply list-disc pl-5 mt-3;
@@ -99,7 +58,7 @@ h6 {
 .rte-ul li::marker {
     @apply text-secondary;
 }
-*/
+
 a {
     @apply no-underline;
 }

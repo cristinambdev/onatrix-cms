@@ -1,0 +1,26 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var content = (ContentModels.ReviewSection)Model.Content;
+
+}
+
+<section class="bg-white-100 relative">
+    <div class="max-w-7xl mx-auto  flex">
+        <div class="flex flex-col items-left w-6/15 px-4 py-16">
+            <h2 class="label text-left">@content.ReviewSectionLabel</h2>
+            <div class="leading-none text-left mb-6">@Html.Raw(content.ReviewSectionTitle)</div>
+            <div class="rte">@Html.Raw(content.ReviewSectionText)</div>
+            <div>@Html.Raw(content.ReviewSectionSignature)</div>
+        </div>
+
+            @if (@content?.ReviewSectionImage != null)
+            {
+            <div class="absolute w-7/15 inset-y-0 right-0">
+                    <img src="@content?.ReviewSectionImage.Url()" class="h-full w-full object-cover" />
+            </div>
+            }
+    </div>
+
+</section>

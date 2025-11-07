@@ -1,6 +1,9 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using Umbraco.Cms.Web.Common.PublishedModels
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContactPage>
 @{
-	Layout = "mainLayout.cshtml";
+    Layout = "mainLayout.cshtml";
 }
+
 <partial name="partials/Layout/_PageHeader" model="(IPageHeader)Model" />
+
+@Html.GetBlockListHtml(Model.Sections)

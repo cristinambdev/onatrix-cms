@@ -1,0 +1,46 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Onatrix_Umbraco.ViewModels
+@{
+    var content = (ContentModels.ContactCallbackSection)Model.Content;
+    var settings = Model.Settings as ContentModels.AboutCallbackSettings;
+
+    var formVM = new CallbackFormViewModel
+    {
+        Options = settings?.CallbackRequestOptions ?? []
+    };
+}
+
+<section class="relative bg-primary bg-no-repeat bg-center bg-cover min-h-[700px] flex items-center"
+         style="background-image: url('/images/map_1.svg');">
+    
+    <div class="w-full px-6 lg:px-12">
+        <div class="bg-neutral w-full max-w-6xl mx-auto rounded-lg shadow-lg p-10 z-10 -mb-100">
+
+            <div class="flex flex-col gap-3 text-center mb-8 mx-auto max-w-lg">
+                <span>@content.ContactCallbackSectionLabel</span>
+                <span class="leading-none">@content.ContactCallbackSectionTitle</span>
+                <p>@content.ContactCallbackSectionDescription</p>
+            </div>
+
+            @{
+                ViewData["IsContactPage"] = true;
+            }
+
+            <partial name="Partials/Forms/_CallbackForm" model="formVM" view-data="ViewData" />
+
+            @if (TempData["FormSuccess"] != null)
+            {
+                <div class="bg-green-50 text-green-700 p-4 mx-[2rem] mb-4 rounded-md text-center">
+                    @TempData["FormSuccess"]
+                </div>
+            }
+            else if (TempData["FormError"] != null)
+            {
+                <div class="bg-red-50 text-red-700 p-4 mx-[2rem] mb-4 rounded-md">
+                    @TempData["FormError"]
+                </div>
+            }
+        </div>
+    </div>
+</section>

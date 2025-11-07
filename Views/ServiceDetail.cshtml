@@ -1,13 +1,19 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Extensions
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ServiceDetail>
 @{
 	Layout = "mainLayout.cshtml";
+	var root = Umbraco.ContentAtRoot().FirstOrDefault();
+	var siteSettings = root?.Children()?.OfType<ContentModels.SiteSettings>()?.FirstOrDefault();
+
+
 }
 
 <partial name="partials/Layout/_PageHeader" model="(IPageHeader)Model" />
 
 
-<section class="py-16">
+<section class="pt-16">
 	<div class="max-w-7xl mx-auto px-4">
 		<div class="flex flex-row justify-between">
 			<aside class="w-3/12 flex flex-col gap-4">
@@ -21,5 +27,15 @@
 				<div class="rte">@Html.Raw(Model.ServiceDetailBody)</div>
 			</div>
 		</div>
+
 	</div>
+	<div class="mt-10 mb-0">
+		@if (Model.Sections != null)
+		{
+			@Html.GetBlockListHtml(Model.Sections)
+		}
+	</div>
+	
+
 </section>
+

@@ -27,7 +27,7 @@ namespace Onatrix_Umbraco.Controllers
                 //ModelState.AddModelError("", "There was an error saving your request. Please try again later.");
                 return RedirectToCurrentUmbracoPage();
             }
-            TempData["FormSuccess"] = "Thank you! Your request has been received. We will get back to you soon";
+            TempData["FormSuccess"] = "Thank you! Your request has been received. We will get back to you soon.";
 
 
             return RedirectToCurrentUmbracoPage();

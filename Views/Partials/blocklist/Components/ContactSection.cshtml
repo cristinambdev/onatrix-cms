@@ -3,6 +3,7 @@
 @{
     var content = (ContentModels.ContactSection)Model.Content;
     var settings = Model.Settings as ContentModels.ContactSettings;
+    var sectionColor = settings?.ContactBgColor?.Color ?? "#ffffff";
 
     //Onatrix root node
     var rootContent = Umbraco.ContentAtRoot();
@@ -14,11 +15,10 @@
     var contactEmail = siteSettings?.ContactEmail?.ToHtmlString() ?? "No Email given";
     var contactPhone = siteSettings?.ContactPhone?.ToHtmlString() ?? "No Address given";
 
-    // var bgColor = content.Value<string>("contactBgColor") ?? "#ffffff";
-    var sectionColor = settings?.ContactBgColor?.Color ?? "#ffffff";
+  
 }
 
-<section class="py-16" style="background-color:@sectionColor;">
+<section class="pt-[4rem]" style="background-color:@sectionColor;">
     <div class="max-w-7xl mx-auto px-4 pt-16 grid grid-cols-2  gap-20">
 
         <div class="relative">

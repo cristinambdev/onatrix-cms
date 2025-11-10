@@ -33,32 +33,53 @@
 
 <header class="relative shadow-sm z-[9999]">
     <nav class="max-w-7xl mx-auto flex items-center justify-between p-4">
-        @if(logo != null) {
-            <a href="/" class="flex-shrink-0">
-                <img src="@logo.Url()" alt="Onatrix"/>
-            </a>
-        }
-        else
-        {
-            <a href="/" class="flex-shrink-0">
-                Onatrix
-            </a>
-        }
-
-      
+        <!-- Logo -->
+        <div class="flex items-center justify-between w-full md:w-auto">
+            @if (logo != null)
+            {
+                <a href="/" class="flex-shrink-0">
+                    <img src="@logo.Url()" alt="Onatrix" class="h-8 w-auto" />
+                </a>
+            }
+            else
+            {
+                <a href="/" class="flex-shrink-0">
+                    Onatrix
+                </a>
+            }
+            <!-- Mobile Menu button -->
+            <button id="menu-toggle"
+                    class="text-primary text-2xl md:hidden focus:outline-none"
+                    aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i> 
+            </button>
+        </div>
+       
+        <!-- Navigation Links -->
         @if (selection?.Length > 0)
         {
-            <ul class="flex items-center gap-16">
+            <ul id="nav-links" class="hidden flex-col absolute top-full left-0 w-full bg-neutral border-t border-gray-200 md:border-none md:static md:flex md:flex-row md:items-center md:gap-20 md:w-auto">
                 @foreach (var item in selection)
                 {
-                    <li class="@(item.IsAncestorOrSelf(Model) ? "current" : null)">
-                        <a class="font-bold text-primary hover:text-secondary transition-colors" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                    <li class="@(item.IsAncestorOrSelf(Model) ? "current" : null) p-4 md:p-0 border-b md:border-0">
+                        <a class="block highlight-none font-bold text-primary hover:text-secondary transition-colors" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
                     </li>
                 }
             </ul>
         }
-        <div class="flex items-center">
+        <div class="hidden md:flex items-center">
             <i class="fa-solid fa-magnifying-glass text-lg text-primary"></i>
         </div>
     </nav>
 </header>
+
+<script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("hidden");
+        });
+    }
+</script>

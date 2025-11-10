@@ -1,0 +1,55 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+@using Onatrix_Umbraco.ViewModels
+
+@{
+    var content = (ContentModels.OnlineSupportCard)Model.Content;
+    var formModel = new CallbackFormViewModel
+    {
+        Name = "Online Support",
+        Phone = "N/A",
+        SelectedOption = "Online Support Card"
+    };
+}
+
+<div class="bg-primary flex flex-col gap-4 mx-auto p-5 mt-10 rounded"
+     style="background-image: url('/images/mail.svg');
+                background-position: bottom right;
+                background-repeat: no-repeat;">
+    <h6 class="text-secondary text-xl font-semibold">@content.OnlineSupportCardTitle</h6>
+    <p class ="text-neutral font-light">@content.OnlineSupportCardText</p>
+
+    @using (Html.BeginUmbracoForm("HandleCallbackForm", "Form", FormMethod.Post, new { id = "supportForm" }))
+    {
+         <!-- Hidden fields for required properties -->
+        <input type="hidden" name="Name" value="@formModel.Name" />
+        <input type="hidden" name="Phone" value="@formModel.Phone" />
+        <input type="hidden" name="SelectedOption" value="@formModel.SelectedOption" />
+
+
+
+        <div class="bg-neutral flex items-center rounded p-3 justify-between my-3">
+            <input 
+                   name="Email"
+                   type="email"
+                   placeholder="Enter your email"
+                   required
+                   class="w-full bg-transparent italic text-sm focus:outline-none p-2" />
+            <button type="submit" class="text-body-text-100 ml-3 cursor-pointer">
+                <i class="fa-regular fa-envelope text-lg"></i>
+            </button>
+        </div>
+    }
+    @if (TempData["FormSuccess"] != null)
+    {
+        <div class="bg-green-50 text-green-700 p-3 mt-2 rounded">
+            @TempData["FormSuccess"]
+        </div>
+    }
+    else if (TempData["FormError"] != null)
+    {
+        <div class="bg-red-50 text-red-700 p-3 mt-2 rounded">
+            @TempData["FormError"]
+        </div>
+    }
+</div>

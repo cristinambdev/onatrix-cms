@@ -1,0 +1,39 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Onatrix_Umbraco.ViewModels
+@{
+    var content = (ContentModels.ContactQuestionRequest)Model.Content;
+    var formVM = new QuestionFormViewModel();
+
+}
+
+<section class="py-[4rem]">
+    <div class="max-w-7xl mx-auto px-4">
+
+            <div class="rte">
+                @Html.Raw(content.ContactQuestionSectionTitle)
+            </div>
+        
+       
+        <div>
+
+            <partial name="Partials/Forms/_QuestionForm" model="formVM" view-data="ViewData" />
+
+            @if(TempData["FormSuccess"] != null)
+            {
+                <div class="bg-green-50 text-green-700 p-4 mt-2 mb-4 rounded-md">
+                    @TempData["FormSuccess"];
+                </div>
+            }
+            else if(TempData["FormError"] != null)
+            {
+                <div class="bg-red-50 text-red-700 p-4 mt-2 mb-4 rounded-md">
+                    @TempData["FormError"];
+                </div>
+            }
+            
+
+        </div>
+    </div>
+
+</section>

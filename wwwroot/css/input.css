@@ -62,9 +62,7 @@ body {
 a {
     @apply no-underline;
 }
-.mierda {
-    border: 1px solid red;
-}
+
 /* ------------------------------------
    Buttons
 ------------------------------------ */

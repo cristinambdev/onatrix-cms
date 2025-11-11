@@ -18,13 +18,13 @@
   
 }
 
-<section class="pt-[4rem]" style="background-color:@sectionColor;">
-    <div class="max-w-7xl mx-auto px-4 pt-16 grid grid-cols-2  gap-20">
+<section class="lg:pt-[4rem]" style="background-color:@sectionColor;">
+    <div class="max-w-7xl mx-auto px-4 pt-[2rem] lg:pt-16 grid lg:grid-cols-2 gap-20">
 
-        <div class="relative">
+        <div class="relative hidden lg:block ">
             @if (@content?.ContactSectionBackgroundImageDot != null)
             {
-                    <img src="@content?.ContactSectionBackgroundImageDot.Url()" class="h-full object-cover" />
+                <img src="@content?.ContactSectionBackgroundImageDot.Url()" class="h-full object-cover" />
             }
 
            
@@ -33,8 +33,8 @@
                 <img src="@content?.ContactSectionContactPersonImage.Url()" class="absolute bottom-0 z-10 w-auto max-h-[650px] object-cover" />
             }
         </div>
-        <div class="flex flex-col gap-3 justify-center w-4/5">
-            <div class="leading-none text-left mb-6">
+        <div class="flex flex-col gap-6 justify-center lg:w-4/5 w-full lg:text-left">
+            <div class="leading-none lg:text-left text-center mb-6">
                 @Html.Raw(content?.ContactSectionTitle)
             </div>
         

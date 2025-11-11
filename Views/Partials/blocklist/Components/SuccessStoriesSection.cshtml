@@ -1,4 +1,49 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+﻿@* @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var content = (ContentModels.SuccessStoriesSection)Model.Content;
+}
+
+<section class="bg-primary bg-no-repeat py-12 md:py-20 relative min-h-[600px] md:min-h-[800px]"  
+         style="background-image: url('/images/dot_map.svg');
+                background-position: center;
+                background-size: cover; 
+                background-repeat: no-repeat;">
+
+    <div class="max-w-7xl mx-auto px-4 flex flex-col items-center text-center"> 
+
+       
+        <div class="flex flex-col gap-3 items-center text-center max-w-2xl"> 
+            <h2 class="label text-secondary text-sm md:text-base tracking-wide uppercase"> 
+                @content.SuccessStoriesSectionLabel
+            </h2>
+
+            <div class="rte text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-snug"> 
+                @Html.Raw(content.SuccessStoriesSectionTitle)
+            </div>
+        </div>
+
+       
+        <div class="flex flex-col sm:flex-row justify-center items-center sm:items-start gap-6 sm:gap-10 mt-8 md:mt-12 w-full">
+            <span class="flex-1 text-white text-lg md:text-xl font-medium px-4">@Html.Raw(content.SuccessStoriesSectionCustomers)</span>
+            <span class="flex-1 text-white text-lg md:text-xl font-medium px-4">@Html.Raw(content.SuccessStoriesSectionProjects)</span>
+            <span class="flex-1 text-white text-lg md:text-xl font-medium px-4">@Html.Raw(content.SuccessStoriesSectionBranches)</span>
+        </div>
+
+       
+        @if (content?.SuccessStoriesSectionImage != null)
+        {
+            <div class="hidden md:flex justify-center mt-2 absolute top-80">
+                    <img src="@content?.SuccessStoriesSectionImage.Url()"
+                         alt="Success Stories"
+                         class="w-full max-w-md sm:max-w-lg md:max-w-2xl h-auto rounded-lg shadow-lg" /> 
+                </div>
+        }
+    </div>
+</section>
+ *@
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 
 @{

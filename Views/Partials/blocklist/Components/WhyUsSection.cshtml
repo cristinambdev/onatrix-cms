@@ -3,37 +3,45 @@
 
 @{
     var content = (ContentModels.WhyUsSection)Model.Content;
-    
 }
 
-<section class="bg-neutral bg-no-repeat py-16"
-         style="background-image: url('/images/dot_map.svg');
-                background-position: center;
-                background-repeat: no-repeat;">
-    <div class="max-w-7xl mx-auto px-4 relative flex flex-col items-center">
+<section class="bg-neutral bg-no-repeat pt-16"
+         style="background-image: url('/images/dot_map.svg')";
+         background-position: center;>
 
-        <div class="flex flex-col justify-center">
-            <h2 class="rte">@content.WhyUsTitle</h2>
+    <div class="max-w-7xl mx-auto px-4 flex flex-col items-center text-center">  
 
-            <div class="rte my-6 w-[40rem] flex justify-center items-center">
+        <div class="flex flex-col justify-center items-center max-w-3xl">  
+            <h2 class="rte sm:text-3xl"> 
+                @content.WhyUsTitle
+            </h2>
+
+            <div class="rte my-6 w-full md:w-3/4 lg:w-[40rem] text-body-text-100"> 
                 <span>@Html.Raw(content.WhyUsDescription)</span>
             </div>
-            <div class="flex justify-center mb-15">
+
+            <div class="flex justify-center mb-8 md:mb-12"> 
                 @if (content.ReadOurStoryButton != null)
                 {
-                    <a href="@content.ReadOurStoryButton.Url" class="btn primary-btn">Read our story</a>
+                        <a href="@content.ReadOurStoryButton.Url"
+                           class="btn primary-btn text-sm md:text-base px-6 py-3"> 
+                            Read our story
+                        </a>
                 }
             </div>
-           
         </div>
 
-        @if (@content?.WhyUsPicture != null)
+        @if (content?.WhyUsPicture != null)
         {
-            <div class="flex justify-center">
-                <img src="@content?.WhyUsPicture.Url()" class="mt-5 " />
-            </div>
+                <div class="flex justify-center w-full mt-6 md:mt-10"> 
+                    <img src="@content?.WhyUsPicture.Url()"
+                         class="max-w-full h-auto md:max-w-2xl lg:max-w-4xl" /> 
+                </div>
         }
-
     </div>
 </section>
+
+
+
+    
 

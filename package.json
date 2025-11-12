@@ -5,5 +5,8 @@
   },
   "scripts": {
     "dev": "npx @tailwindcss/cli -i ./wwwroot/css/input.css -o ./wwwroot/css/output.css --watch"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.1"
   }
 }

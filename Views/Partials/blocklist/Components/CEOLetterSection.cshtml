@@ -6,7 +6,7 @@
 
 }
 <section class="bg-neutral">
-    <div class="max-w-7xl mx-auto mt-[5rem] mb-[6rem] px-4  gap-7 flex justify-between">
+    <div class="max-w-7xl mx-auto mt-[5rem] mb-[4rem] px-4  gap-7 flex flex-col items-center lg:flex-row justify-between">
         <div>
             @if (@content?.CeoImage != null)
             {
@@ -16,7 +16,7 @@
             }
             <span class="mt-2">@Html.Raw(content?.CeoImageCaption)</span>
         </div>
-        <div class="rte w-2/3">
+        <div class="rte w-full md:w-2/3">
           @Html.Raw(content?.CeoLongLetter)
         </div>
     </div>

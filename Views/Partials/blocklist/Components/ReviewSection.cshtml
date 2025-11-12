@@ -1,4 +1,58 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+﻿@* @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var content = (ContentModels.ReviewSection?)Model.Content;
+    if (content == null)
+    {
+        return;
+    }
+}
+
+<section class="bg-white-100 py-12">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-stretch px-4 md:px-8 gap-8 md:relative">
+
+        <!--Text section -->
+        <div class="w-full md:w-1/2 flex flex-col justify-center text-left order-1 md:order-1 ">
+            <h2 class="label text-secondary mb-2">@content.ReviewSectionLabel</h2>
+            <div class="text-primary text-3xl font-bold mb-4 leading-tight">@Html.Raw(content.ReviewSectionTitle)</div>
+
+
+            <!-- Image under label (mobile), right side (desktop) -->
+            @if (content.ReviewSectionImage != null)
+            {
+                <div class="w-full mt-4 mb-6 md:hidden">
+                    <img src="@content.ReviewSectionImage.Url()"
+                         alt="Review Section Image"
+                         class="w-full h-64 object-cover rounded-lg shadow-md" />
+                </div>
+            }
+
+            <div class="rte text-gray-700 mb-6">@Html.Raw(content.ReviewSectionText)</div>
+            <div class="text-sm italic text-gray-600">@Html.Raw(content.ReviewSectionSignature)</div>
+        </div>
+
+        <!--Image on the right for desktop -->
+        @if (@content?.ReviewSectionImage != null)
+        {
+            <div class="md:absolute md:w-7/15 inset-y-0 right-0 order-1 md:order-2">
+                <img src="@content?.ReviewSectionImage.Url()" alt="Review Section Image" class="h-full w-full object-cover" />
+            </div>
+        }
+
+      @*   @if (content.ReviewSectionImage != null)
+        {
+            <div class="hidden md:block  order-2">
+                <img src="@content.ReviewSectionImage.Url()"
+                     alt="Review Section Image"
+                     class="w-full h-full object-cover rounded-lg shadow-md" />
+            </div>
+        } 
+    </div>
+</section> *@
+
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 
 @{
@@ -6,21 +60,35 @@
 
 }
 
-<section class="bg-white-100 relative">
-    <div class="max-w-7xl mx-auto  flex">
-        <div class="flex flex-col items-left w-6/15 px-4 py-16">
-            <h2 class="label text-left">@content.ReviewSectionLabel</h2>
-            <div class="leading-none text-left mb-6">@Html.Raw(content.ReviewSectionTitle)</div>
-            <div class="rte">@Html.Raw(content.ReviewSectionText)</div>
-            <div>@Html.Raw(content.ReviewSectionSignature)</div>
-        </div>
+
+<section class="bg-white-100 lg:relative">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center items-center md:items-stretch px-4 lg:px-8 gap-8">
+
+    
+
+        <div class="flex flex-col items-left w-full lg:w-6/15 px-4 py-16 order-2 lg:order-1">
+            <h2 class="label text-left">@content?.ReviewSectionLabel</h2>
+            <div class="leading-none text-left mb-6">@Html.Raw(content?.ReviewSectionTitle)</div>
 
             @if (@content?.ReviewSectionImage != null)
             {
-            <div class="absolute w-7/15 inset-y-0 right-0">
-                    <img src="@content?.ReviewSectionImage.Url()" class="h-full w-full object-cover" />
-            </div>
+                <div class="w-full lg:hidden inset-y-0 right-0 mb-5">
+                    <img src="@content?.ReviewSectionImage.Url()" alt="Review Section Image" class="h-full w-full object-cover" />
+                </div>
             }
+
+
+            <div class="rte">@Html.Raw(content?.ReviewSectionText)</div>
+            <div>@Html.Raw(content?.ReviewSectionSignature)</div>
+        </div>
+
+        @if (@content?.ReviewSectionImage != null)
+        {
+            <div class="hidden lg:block lg:absolute lg:w-7/15 inset-y-0 right-0 order-1 lg:order-2">
+                <img src="@content?.ReviewSectionImage.Url()" alt="Review Section Image" class="h-full w-full object-cover" />
+            </div>
+        }
+            
     </div>
 
 </section>

@@ -483,5 +483,3 @@ umbraco-package-schema.json
 /appsettings.json
 /appsettings.Development.json
 
-# Ignore built Tailwind output
-wwwroot/css/output.css

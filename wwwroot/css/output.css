@@ -302,6 +302,9 @@
       max-width: 96rem;
     }
   }
+  .\!m-0 {
+    margin: calc(var(--spacing) * 0) !important;
+  }
   .-mx-2 {
     margin-inline: calc(var(--spacing) * -2);
   }
@@ -437,6 +440,9 @@
   .w-4 {
     width: calc(var(--spacing) * 4);
   }
+  .w-8 {
+    width: calc(var(--spacing) * 8);
+  }
   .w-16 {
     width: calc(var(--spacing) * 16);
   }
@@ -545,6 +551,9 @@
   .rounded {
     border-radius: 0.25rem;
   }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
   .rounded-lg {
     border-radius: var(--radius-lg);
   }
@@ -571,6 +580,9 @@
     border-left-style: var(--tw-border-style);
     border-left-width: 1px;
   }
+  .border-border-400 {
+    border-color: var(--color-border-400);
+  }
   .border-gray-200 {
     border-color: var(--color-gray-200);
   }
@@ -582,6 +594,9 @@
   }
   .border-white-100 {
     border-color: var(--color-white-100);
+  }
+  .\!bg-transparent {
+    background-color: transparent !important;
   }
   .bg-border-gray {
     background-color: var(--color-border-gray);
@@ -663,6 +678,9 @@
   }
   .px-\[2rem\] {
     padding-inline: 2rem;
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
   }
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
@@ -797,6 +815,12 @@
   .text-body-text-100 {
     color: var(--color-body-text-100);
   }
+  .text-border-400 {
+    color: var(--color-border-400);
+  }
+  .text-gray-400 {
+    color: var(--color-gray-400);
+  }
   .text-gray-500 {
     color: var(--color-gray-500);
   }
@@ -841,6 +865,11 @@
   }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
   .transition-all {
     transition-property: all;

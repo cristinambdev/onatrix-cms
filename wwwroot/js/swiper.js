@@ -42,7 +42,7 @@
         }
     })
     new Swiper('.partnerSwiper', {
-        slidesPerView: 2.5,
+        slidesPerView: 2,
         spaceBetween: 10,
         loop: true
     });

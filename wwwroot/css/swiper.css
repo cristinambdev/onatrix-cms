@@ -1,9 +1,7 @@
 ﻿
 
 
-.custom-pagination {
-    @apply hidden;
-}
+
 
 @media (min-width: 768px) {
     .custom-pagination {

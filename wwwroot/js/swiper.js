@@ -41,4 +41,9 @@
             }
         }
     })
+    new Swiper('.partnerSwiper', {
+        slidesPerView: 2.5,
+        spaceBetween: 10,
+        loop: true
+    });
 })

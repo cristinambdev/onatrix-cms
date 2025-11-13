@@ -1,0 +1,15 @@
+﻿
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.PartnerItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var content = Model;
+}
+
+<div class="flex flex-col w-16 h-16 md:w-24 md:h-24 cursor-pointer">
+    @if (content.PartnerImage != null)
+    {
+        <img src="@content.PartnerImage.Url()" alt="@content.PartnerItemName" class="object-contain mx-auto" />
+    }
+</div>

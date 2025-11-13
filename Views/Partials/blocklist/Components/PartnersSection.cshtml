@@ -1,48 +1,42 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
-
+@using Umbraco.Extensions
 @{
     var content = (ContentModels.PartnersSection)Model.Content;
-
+    var partnerList = content.PartnerItemList;
 }
-<section class="bg-neutral">
-    <div class="max-w-7xl mx-auto px-4 gap-[4rem] mt-[2rem] md:mt-[10rem] mb-5 md:mb-10 flex flex-col items-center md:flex-row justify-center">
-        @if (@content?.Freedombird != null)
-        {
-            <div>
-                <img src="@content?.Freedombird.Url()"  />
-            </div>
-        }
-        @if (@content?.Identity != null)
-        {
-            <div>
-                <img src="@content?.Identity.Url()"/>
-            </div>
-        }
-        @if (@content?.Natural != null)
-        {
-            <div >
-                <img src="@content?.Natural.Url()" />
-            </div>
-        }
-        @if (@content?.Simpleleaf != null)
-        {
-            <div>
-                <img src="@content?.Simpleleaf.Url()" />
-            </div>
-        }
-        @if (@content?.Globe != null)
-        {
-            <div>
-                <img src="@content?.Globe.Url()" />
-            </div>
-        }
-        @if (@content?.FossilGroup != null)
-        {
-            <div>
-                <img src="@content?.FossilGroup.Url()" />
-            </div>
-        }
-    </div>
 
+<section class="bg-neutral">
+    @if (partnerList != null && partnerList.Any())
+    {
+
+        <!-- DESKTOP VIEW -->
+        <div class="hidden md:flex max-w-7xl mx-auto px-4 md:gap-[4rem] mt-[2rem] md:mt-[10rem] mb-5 md:mb-10 flex-col items-center md:flex-row justify-center">
+            @foreach (var blockListItem in partnerList)
+            {
+                var partnerContent = blockListItem.Content; 
+
+                <div class="flex-shrink-0">
+                    <partial name="Partials/BlockList/Components/Partner" model="partnerContent" />
+                </div>
+            }
+        </div>
+
+        <!--MOBILE SLIDER VIEW-->
+        <div class="block md:hidden mt-[2rem] mb-5">
+            <div class="swiper serviceSwiper">
+                <div class="swiper-wrapper flex items-center">
+                    @foreach (var blockListItem in partnerList)
+                    {
+                        var partnerContent = blockListItem.Content;
+
+                        <div class="swiper-slide">
+                            <partial name="Partials/BlockList/Components/Partner" model="partnerContent" />
+                        </div>
+                    }
+                </div>
+              
+            </div>
+        </div>
+    }
 </section>

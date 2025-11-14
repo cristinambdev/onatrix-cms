@@ -9,6 +9,8 @@ builder.CreateUmbracoBuilder()
     .AddComposers()
     .Build();
 
+Console.WriteLine("ACS STRING: " + builder.Configuration["ACS:ConnectionString"]);
+
 builder.Services.AddSingleton(x => new EmailClient(builder.Configuration["ACS:ConnectionString"]));
 builder.Services.AddScoped<FormSubmissionsService>();
 builder.Services.AddScoped<EmailService>();

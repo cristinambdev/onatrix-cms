@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Logging;
 using Umbraco.Cms.Core.Mail;           
-using Umbraco.Cms.Core.Models.Email;
 using Umbraco.Cms.Core.Routing;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Web;
@@ -22,11 +21,11 @@ namespace Onatrix_Umbraco.Controllers
         IProfilingLogger profilingLogger,
         IPublishedUrlProvider publishedUrlProvider,
         FormSubmissionsService formSubmissions,
-        IEmailSender emailSender
+        EmailService emailService
         ) : SurfaceController(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
     {
         private readonly FormSubmissionsService _formSubmissions = formSubmissions;
-        private readonly IEmailSender _emailSender = emailSender;
+        private readonly EmailService _emailService = emailService;
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -46,20 +45,20 @@ namespace Onatrix_Umbraco.Controllers
             try
             {
                
-                // Confirmation email to the user
-                var confirmMessage = new EmailMessage(
-                    from: "no-reply@onatrix.com",
-                    to: model.Email,
-                    subject: "We received your question!",
-                    body: $@"
-                        <p>Hi {model.Name},</p>
-                        <p>Thank you for reaching out. We’ve received your question and will get back to you soon.</p>
-                        <p><em>Your question:</em> {model.Question}</p>
-                        <p>Best regards,<br/>The Onatrix Team</p>",
-                   true
-                );
+                //// Confirmation email to the user
+                //var confirmMessage = new EmailMessage(
+                //    from: "no-reply@onatrix.com",
+                //    to: model.Email,
+                //    subject: "We received your question!",
+                //    body: $@"
+                //        <p>Hi {model.Name},</p>
+                //        <p>Thank you for reaching out. We’ve received your question and will get back to you soon.</p>
+                //        <p><em>Your question:</em> {model.Question}</p>
+                //        <p>Best regards,<br/>The Onatrix Team</p>",
+                //   true
+                //);
 
-                await _emailSender.SendAsync(confirmMessage, "QuestionFormConfirmation");
+                await _emailService.SendEmailAsync(model.Email);
 
                 TempData["FormSuccess"] = "Thank you! Your question has been submitted successfully.";
             }
@@ -86,21 +85,21 @@ namespace Onatrix_Umbraco.Controllers
                 return RedirectToCurrentUmbracoPage();
             }
 
-            // Email confirmation message
-            var confirmMessage = new EmailMessage(
-                "no-reply@onatrix.com",
-                model.Email,
-                "Thanks for getting in touch!",
-                $@"
-                    <p>Hi {model.Name},</p>
-                    <p>We’ve received your callback request about <strong>{model.SelectedOption}</strong>.</p>
-                    <p>We’ll contact you at {model.Phone} soon.</p>
-                    <p>Best regards,<br/>The Onatrix Team</p>",
-                true
-            );
+            //// Email confirmation message
+            //var confirmMessage = new EmailMessage(
+            //    "no-reply@onatrix.com",
+            //    model.Email,
+            //    "Thanks for getting in touch!",
+            //    $@"
+            //        <p>Hi {model.Name},</p>
+            //        <p>We’ve received your callback request about <strong>{model.SelectedOption}</strong>.</p>
+            //        <p>We’ll contact you at {model.Phone} soon.</p>
+            //        <p>Best regards,<br/>The Onatrix Team</p>",
+            //    true
+            //);
 
-           
-            await _emailSender.SendAsync(confirmMessage, "Callback");
+
+            await _emailService.SendEmailAsync(model.Email);
 
             TempData["FormSuccess"] = "Thank you! Your request has been received. We will get back to you soon.";
             return RedirectToCurrentUmbracoPage();

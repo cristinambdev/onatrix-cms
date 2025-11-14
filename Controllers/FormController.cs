@@ -58,7 +58,7 @@ namespace Onatrix_Umbraco.Controllers
                 //   true
                 //);
 
-                await _emailService.SendEmailAsync(model.Email);
+                await _emailService.SendEmailAsync(model.Email, model.Name);
 
                 TempData["FormSuccess"] = "Thank you! Your question has been submitted successfully.";
             }
@@ -99,7 +99,7 @@ namespace Onatrix_Umbraco.Controllers
             //);
 
 
-            await _emailService.SendEmailAsync(model.Email);
+            await _emailService.SendEmailAsync(model.Email, model.Name);
 
             TempData["FormSuccess"] = "Thank you! Your request has been received. We will get back to you soon.";
             return RedirectToCurrentUmbracoPage();

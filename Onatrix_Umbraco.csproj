@@ -31,7 +31,6 @@
 
 	<ItemGroup>
 		<Content Update="wwwroot\js\**\*.js" CopyToPublishDirectory="Always" />
-		<Content Include="wwwroot\images\**\*.*" CopyToOutputDirectory="Always" />
 	</ItemGroup>
 
 
